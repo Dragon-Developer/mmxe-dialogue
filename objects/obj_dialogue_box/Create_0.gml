@@ -48,7 +48,9 @@ text_init();
 palette_init();
 
 // Text Position and Size
-text_xstart = 52;
+text_side = MUGSHOT_SIDE.LEFT;
+text_xstart_side = [52, 2];
+text_xstart = text_xstart_side[text_side];
 text_ystart = 2;
 text_x = text_xstart;
 text_y = text_ystart;
@@ -74,27 +76,34 @@ text_down_arrow_y = text_h - 8;
 key_p_enter = false;
 draw_set_offset(0, 0);
 
+enum MUGSHOT_SIDE { LEFT, RIGHT };
+
 dialogue_list = ds_list_create();
-ds_list_add(dialogue_list, 
+ds_list_add(dialogue_list,
 	new Dialogue(
 		"DARK SHADOW",
 		"Hello everyone! My name is Dark Shadow and I'm testing this wordwrapppppppppppppppppppppppp test \nBreak Line\nNice test\nIt's working",
+		MUGSHOT_SIDE.LEFT
 	),
 	new Dialogue(
 		"",
-		"Hello everyone! My name is\nWhat?"
+		"Hello everyone! My name is\nWhat?",
+		MUGSHOT_SIDE.RIGHT
 	),
 	new Dialogue(
 		"RANDOM",
-		"IDK"
+		"IDK",
+		MUGSHOT_SIDE.LEFT
 	),
 	new Dialogue(
 		"TEST 4",
-		"OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK"
+		"OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK",
+		MUGSHOT_SIDE.RIGHT
 	),
 	new Dialogue(
 		"A B C",
-		"AAAAAAAAAAAAAAAAAAAAAAAAAAA BBBBBBBBBBBBBBBBBBBBBB CCCCCCCCCCCCCCCCCCCCCCCCC???"
+		"AAAAAAAAAAAAAAAAAAAAAAAAAAA BBBBBBBBBBBBBBBBBBBBBB CCCCCCCCCCCCCCCCCCCCCCCCC???",
+		MUGSHOT_SIDE.LEFT
 	)
 );
 for (var i = 0, len = ds_list_size(dialogue_list); i < len; i++) {

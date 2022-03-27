@@ -79,13 +79,13 @@ switch (state) {
 		text_y -= 3;
 		if (abs(text_y) > surf_height) {
 			state_set((dialogue_index < ds_list_size(dialogue_list)) ? diag_states.writing_text : diag_states.close_box);
-			text_x = text_xstart;
-			text_y = text_ystart;
 			dialogue_clear_draw();
 			if (state == diag_states.writing_text && dialogue_next) {
 				dialogue_list[| dialogue_index].apply(id);
 				dialogue_next = false;
 			}
+			text_x = text_xstart;
+			text_y = text_ystart;
 		}
 	break;
 	#endregion
@@ -105,7 +105,6 @@ switch (state) {
 	break;
 	#endregion
 }
-
 
 rect_x = (surf_width - width) / 2;
 rect_y = (surf_height - height) / 2;
