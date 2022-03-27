@@ -7,8 +7,7 @@ switch (state) {
 		// SNES
 		if (box_mode == box_modes.snes) {
 			// Increase size
-			width = clamp(width + box_speed, 0, surf_width);
-			height = clamp(height + box_speed, 0, surf_height);
+			boxSizeIncrease(box_speed);
 			// Change
 			if (width == surf_width && height == surf_height) {
 				state_set(diag_states.writing_text);
@@ -79,7 +78,7 @@ switch (state) {
 		text_y -= 3;
 		if (abs(text_y) > surf_height) {
 			state_set((dialogue_index < ds_list_size(dialogue_list)) ? diag_states.writing_text : diag_states.close_box);
-			dialogue_clear_draw();
+			clearDrawLines();
 			if (state == diag_states.writing_text && dialogue_next) {
 				dialogue_list[| dialogue_index].apply(id);
 				dialogue_next = false;
@@ -94,8 +93,7 @@ switch (state) {
 		// SNES
 		if (box_mode == box_modes.snes) {
 			// Decrease size
-			width = clamp(width - box_speed, 0, surf_width);
-			height = clamp(height - box_speed, 0, surf_height);
+			boxSizeIncrease(-box_speed);
 			// Change
 			if (width == 0 && height == 0) {
 				instance_destroy();

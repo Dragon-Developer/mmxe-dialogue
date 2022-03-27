@@ -9,6 +9,10 @@ surf_height = 96;
 // Rectangle Current Size
 width = 0;
 height = 0;
+function boxSizeIncrease(speed) {
+	width = clamp(width + speed, 0, surf_width);
+	height = clamp(height + speed, 0, surf_height);	
+}
 
 // Centered Position
 x = (vw - surf_width) / 2;
@@ -72,6 +76,10 @@ text_down_arrow_show = false;
 text_down_arrow = 4;
 text_down_arrow_x = floor((surf_width - 2*global.text_font_width) / 2);
 text_down_arrow_y = text_h - 8;
+function clearDrawLines() {
+	for (var i = 0; i < text_lines_max; i++)
+		text_lines_draw[| i] = "";		
+}
 
 key_p_enter = false;
 draw_set_offset(0, 0);

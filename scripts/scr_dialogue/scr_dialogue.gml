@@ -17,11 +17,7 @@ function Dialogue(name, text, side) constructor {
 			text_page_id = 0;
 			text_side = other.side;
 			text_xstart = text_xstart_side[text_side];
-			dialogue_clear_draw();
+			clearDrawLines();
 		}
 	}
-}
-function dialogue_clear_draw() {
-	for (var i = 0; i < text_lines_max; i++)
-		text_lines_draw[| i] = "";		
 }
