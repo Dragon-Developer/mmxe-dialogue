@@ -53,7 +53,7 @@ palette_init();
 
 // Text Position and Size
 text_side = MUGSHOT_SIDE.LEFT;
-text_xstart_side = [52, 2];
+text_xstart_side = [52, 2, 6];
 text_xstart = text_xstart_side[text_side];
 text_ystart = 2;
 text_x = text_xstart;
@@ -84,38 +84,35 @@ function clearDrawLines() {
 key_p_enter = false;
 draw_set_offset(0, 0);
 
-enum MUGSHOT_SIDE { LEFT, RIGHT };
+enum MUGSHOT_SIDE { LEFT, RIGHT, NONE };
 
 dialogue_list = ds_list_create();
 ds_list_add(dialogue_list,
 	new Dialogue(
-		"DARK SHADOW",
-		"Hello everyone! My name is Dark Shadow and I'm testing this wordwrapppppppppppppppppppppppp test \nBreak Line\nNice test\nIt's working",
+		"SOTI",
+		"Jara hu kaqui we?",
 		MUGSHOT_SIDE.LEFT
 	),
 	new Dialogue(
-		"",
-		"Hello everyone! My name is\nWhat?",
+		"WAKIRO",
+		"Hu nite Hu' ka jakani ririqui ka teto hu...",
 		MUGSHOT_SIDE.RIGHT
 	),
 	new Dialogue(
-		"RANDOM",
-		"IDK",
-		MUGSHOT_SIDE.LEFT
+		"HUTE",
+		"Te torate ri ri ka ri jaka hu ra tedyja ka rate. Ra tedyja hura ri ja karuhuwe. Ka ru we qui ka terara ri teteyu hu ka huhuni kaka huhu ka. Ru ri hu kate ka ra ka ni. Ka te wejanite ri huqui hu yu ka ru Ra ka Dyte ka kate hu to ni raqui. Ja huhu tekari ka, wete ka teto hu torateru hu rate, Hu terate ka katewe Hu yu hu ra ka rahu quihute raja.",
+		MUGSHOT_SIDE.NONE
 	),
 	new Dialogue(
-		"TEST 4",
-		"OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK OK",
+		"TEDYJA",
+		"Hu hu ru jaradyte ka ra nihu tekahuwe. Kate rahuwete huhu kate, nika kaka huhu teteyu. Kate.",
 		MUGSHOT_SIDE.RIGHT
 	),
 	new Dialogue(
-		"A B C",
-		"AAAAAAAAAAAAAAAAAAAAAAAAAAA BBBBBBBBBBBBBBBBBBBBBB CCCCCCCCCCCCCCCCCCCCCCCCC???",
+		"LAKOWE",
+		"Hu tera ka ru kaqui\nhu' ka hute te (ka! Huqui)\njara ka hu kaqui te?\nru huqui hu dyhu we ra-tori\nhu ru ra tera hu teka kate raja.",
 		MUGSHOT_SIDE.LEFT
 	)
 );
-for (var i = 0, len = ds_list_size(dialogue_list); i < len; i++) {
-	dialogue_list[| i].wrap(text_w);	
-}
 dialogue_index = 0;
 dialogue_next = false;

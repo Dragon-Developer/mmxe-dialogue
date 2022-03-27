@@ -16,6 +16,7 @@
     {"id":{"name":"draw_set_offset","path":"scripts/draw_set_offset/draw_set_offset.yy",},"order":1,},
     {"id":{"name":"draw_sprite_offset","path":"scripts/draw_sprite_offset/draw_sprite_offset.yy",},"order":3,},
     {"id":{"name":"palette_init","path":"scripts/palette_init/palette_init.yy",},"order":1,},
+    {"id":{"name":"foreach","path":"scripts/foreach/foreach.yy",},"order":0,},
     {"id":{"name":"palette_shader","path":"scripts/palette_shader/palette_shader.yy",},"order":3,},
     {"id":{"name":"palette_texture_set","path":"scripts/palette_texture_set/palette_texture_set.yy",},"order":5,},
     {"id":{"name":"palette_reset","path":"scripts/palette_reset/palette_reset.yy",},"order":7,},
@@ -64,6 +65,7 @@
     {"folderPath":"folders/Extensions.yy","order":23,"resourceVersion":"1.0","name":"Extensions","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sequences.yy","order":1,"resourceVersion":"1.0","name":"Sequences","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Animation Curves.yy","order":1,"resourceVersion":"1.0","name":"Animation Curves","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Scripts/Foreach.yy","order":8,"resourceVersion":"1.0","name":"Foreach","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
