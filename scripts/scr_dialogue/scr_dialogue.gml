@@ -26,3 +26,30 @@ function Dialogue(name, text, side) constructor {
 		}
 	}
 }
+function getSide(str) {
+	switch (str) {
+		case "LEFT": return MUGSHOT_SIDE.LEFT; break;
+		case "RIGHT": return MUGSHOT_SIDE.RIGHT; break;
+	}
+	return MUGSHOT_SIDE.NONE;
+}
+function loadDialogueFromFile(fname) {
+	if (file_exists(fname)) {
+		ds_list_clear(dialogue_list);
+		var file = file_text_open_read(fname), json = "";
+		while (!file_text_eof(file)) {
+			json +=	file_text_readln(file);
+		}
+		var json_dialogue = json_parse(json);
+		if (variable_struct_exists(json_dialogue, "dialogues") && is_array(json_dialogue.dialogues)) {
+			foreach(json_dialogue.dialogues as (dialogue) {
+				ds_list_add(dialogue_list, new Dialogue(
+					dialogue.name,
+					dialogue.text,
+					getSide(dialogue.side)
+				));
+			});
+		}
+		file_text_close(file);
+	}
+}

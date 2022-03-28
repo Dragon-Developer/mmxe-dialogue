@@ -114,5 +114,7 @@ ds_list_add(dialogue_list,
 		MUGSHOT_SIDE.LEFT
 	)
 );
+// GMS Runtime 2022.2.1.491 bug (this file is not recognized using VM unless you create the executable)
+loadDialogueFromFile("dialogue.json");
 dialogue_index = 0;
 dialogue_next = false;

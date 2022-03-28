@@ -1,0 +1,24 @@
+{
+    "dialogues": [
+      {
+        "name": "X",
+        "text": "Hey Zero!",
+        "side": "LEFT"
+      },
+      {
+        "name": "Zero",
+        "text": "Hey X!",
+        "side": "RIGHT"
+      },
+      {
+        "name": "X",
+        "text": "I don't know what to write\nHelp please! AAAAAAAAAAA",
+        "side": "LEFT"
+      },
+      {
+        "name": "NOBODY",
+        "text": "'-'",
+        "side": ""
+      }
+    ]
+  }
