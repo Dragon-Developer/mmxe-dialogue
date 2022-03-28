@@ -40,7 +40,7 @@ switch (state) {
 							}
 							text_current_string = text_lines[| 0];
 						} else {
-							text_page_id++;
+							//text_page_id++;
 							dialogue_next = true;
 						}
 						state_set(diag_states.waiting);
@@ -79,6 +79,8 @@ switch (state) {
 		if (abs(text_y) > surf_height) {
 			state_set((dialogue_index < ds_list_size(dialogue_list)) ? diag_states.writing_text : diag_states.close_box);
 			clearDrawLines();
+			if (state == diag_states.writing_text)
+				text_page_id++;
 			if (state == diag_states.writing_text && dialogue_next) {
 				dialogue_list[| dialogue_index].apply(id);
 				dialogue_next = false;

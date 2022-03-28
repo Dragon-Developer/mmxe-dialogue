@@ -2,6 +2,7 @@
 if (!surface_exists(surf))
 	surf = surface_create(surf_width, surf_height);
 
+text_set_font(dialogue_font);
 // Draw on the surface if it exists
 if (surface_exists(surf)) {
 	surface_set_target(surf);
@@ -10,10 +11,16 @@ if (surface_exists(surf)) {
 	draw_rectangle(rect_x, rect_y, rect_x + width, rect_y + height, false);
 	draw_set_color(c_white);
 	for (var i = 0; i < ds_list_size(text_lines_draw); i++) {
-		draw_string(text_x, line_h*i + text_y, text_lines_draw[| i]);
+		var c = dialogue_color;
+		if (i == 0 && text_page_id == 0)
+			c = dialogue_title_color;
+		draw_string(text_x, line_h*i + text_y, text_lines_draw[| i], c);
 	}
 	if (text_down_arrow_show) {
+		palette_texture_set(global.text_font_palette);
+		palette_shader();
 		draw_sprite(global.text_font_sprite, text_down_arrow, text_down_arrow_x, text_down_arrow_y);
+		palette_reset();
 	}
 	// Erase part outside of the rectangle
 	draw_set_color(c_black);

@@ -15,7 +15,7 @@ enum colors {
 function draw_string(x, y, text, color = colors.blue) {	
 	plt_index = color;
 
-	palette_texture_set(plt_text_font_normal);
+	palette_texture_set(global.text_font_palette);
 	palette_shader();
 
 	var xx = x - 2;

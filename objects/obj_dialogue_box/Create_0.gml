@@ -50,6 +50,7 @@ box_speed = 3;
 // Text & Palette Variables
 text_init();
 palette_init();
+dialogue_font = text_fonts.normal;
 
 // Text Position and Size
 text_side = MUGSHOT_SIDE.LEFT;
@@ -118,3 +119,5 @@ ds_list_add(dialogue_list,
 loadDialogueFromFile("dialogue.json");
 dialogue_index = 0;
 dialogue_next = false;
+dialogue_color = colors.blue;
+dialogue_title_color = colors.blue;

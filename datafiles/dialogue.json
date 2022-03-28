@@ -3,22 +3,52 @@
       {
         "name": "X",
         "text": "Hey Zero!",
-        "side": "LEFT"
+        "side": "LEFT",
+        "color": "DARK_BLUE"
       },
       {
-        "name": "Zero",
+        "name": "ZERO",
         "text": "Hey X!",
-        "side": "RIGHT"
+        "side": "RIGHT",
+        "color": "RED"
       },
       {
         "name": "X",
         "text": "I don't know what to write\nHelp please! AAAAAAAAAAA",
-        "side": "LEFT"
+        "side": "LEFT",
+        "color": "BLUE"
       },
       {
         "name": "NOBODY",
         "text": "'-'",
-        "side": ""
+        "side": "",
+        "color": "WHITE"
+      },
+      {
+        "name": "X",
+        "text": "Hey Zero!",
+        "side": "LEFT",
+        "title_color": "DARK_BLUE"
+      },
+      {
+        "name": "ZERO",
+        "text": "Hey X!",
+        "side": "RIGHT",
+        "title_color": "RED"
+      },
+      {
+        "name": "X",
+        "text": "I don't know what to write\nHelp please! AAAAAAAAAAA",
+        "side": "LEFT",
+        "title_color": "BLUE"
+      },
+      {
+        "name": "NOBODY",
+        "text": "'-'",
+        "side": "",
+        "title_color": "PINK"
       }
-    ]
+    ],
+    "font": "2",
+    "default_color": "WHITE"
   }

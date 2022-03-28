@@ -6,6 +6,7 @@ function text_set_font() {
 		global.text_font_sprite = arr[0];
 		global.text_font_offset = arr[1];
 		global.text_font_width = arr[2];
+		global.text_font_palette = arr[3];
 	}
 
 
