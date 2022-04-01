@@ -22,9 +22,15 @@ switch (state) {
 			text_skip = true;
 			text_fast_write = true;
 		}
-		var flag = true;
+		var flag = true, play_sound = true;
 		while (flag) {
 			flag = false;
+			// Play letter sound
+			
+			if (!text_skip && t mod text_letter.frequency[text_fast_write] == 0 && play_sound) {
+				audio_stop_sound(text_letter.sound);
+				audio_play_sound(text_letter.sound,	0, false);
+			}
 			// Writing new text characters
 			if (text_fast_write || (t mod text_frequency == 0)) {
 				// If it has reached the end of the line
@@ -32,6 +38,7 @@ switch (state) {
 					text_current_char_index = 1;
 					text_current_line++;
 					text_add_full_line = false;
+					flag = true;
 					if (text_current_line >= min(text_lines_max, ds_list_size(text_lines))) {
 						if (text_current_line < ds_list_size(text_lines)) {
 							while (text_current_line > 0) {
@@ -48,12 +55,14 @@ switch (state) {
 					} else {
 						text_current_string = text_lines[| text_current_line];	
 					}
-				} else {
+				} else if (text_current_line < ds_list_size(text_lines)) {
 					text_lines_draw[| text_current_line] += string_char_at(text_current_string, text_current_char_index++);
 				}
 			}
 			if ((text_skip && state == diag_states.writing_text) || text_add_full_line)
 				flag = true;
+			if (flag)
+				play_sound = false;
 		}
 	break;
 	#endregion

@@ -39,10 +39,8 @@ enum diag_states {
 	close_box
 }
 
-enum box_modes {
-	snes	
-}
-
+enum box_modes { snes }
+enum TEXT_LETTER_SOUND { X1, X2 }
 // Config
 box_mode = 0;
 box_speed = 3;
@@ -77,6 +75,15 @@ text_down_arrow_show = false;
 text_down_arrow = 4;
 text_down_arrow_x = floor((surf_width - 2*global.text_font_width) / 2);
 text_down_arrow_y = text_h - 8;
+text_letter_array[TEXT_LETTER_SOUND.X1] = {
+	sound: snd_text_letter_x1,
+	frequency: [4, 1]
+}
+text_letter_array[TEXT_LETTER_SOUND.X2] = {
+	sound: snd_text_letter_x2,
+	frequency: [4, 2]
+}
+text_letter = text_letter_array[TEXT_LETTER_SOUND.X2];
 function clearDrawLines() {
 	for (var i = 0; i < text_lines_max; i++)
 		text_lines_draw[| i] = "";		
@@ -115,7 +122,6 @@ ds_list_add(dialogue_list,
 		MUGSHOT_SIDE.LEFT
 	)
 );
-// GMS Runtime 2022.2.1.491 bug (this file is not recognized using VM unless you create the executable)
 loadDialogueFromFile("dialogue.json");
 dialogue_index = 0;
 dialogue_next = false;
